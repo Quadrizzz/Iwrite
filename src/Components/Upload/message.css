@@ -1,0 +1,24 @@
+#message-box{
+    background: rgba(90, 145, 247, 0.5);
+    padding: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#message-box button{
+    background: transparent;
+    border: thin none transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+#progress-bar{
+    background: white;
+    color: rgb(47, 109, 202);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

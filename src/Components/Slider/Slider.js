@@ -4,6 +4,7 @@ import './slider.css';
 import img1 from './27833.jpg';
 import img2 from './3529668.jpg'
 import img3 from './5234.jpg'
+import logo from './Logo.PNG'
 
 const slides = [
 img1, img2, img3
@@ -19,14 +20,17 @@ const fadeProperties = {
     }
   }
    
-  const Slideshow = () => {
+  const Slideshow = ({onRouteChange}) => {
     return (
       <div className="slide-container">
         <div id = "header">
-            <button className = "grow">Home</button>
-            <button className = "grow">Collections</button>
-            <button className = "grow">About</button>
-            <button className = "grow">Contacts</button>
+          <img src= {logo} alt ="logo" width = "180px" height ="50px" className ="ml2"></img>
+          <div>
+              <button className = "grow" onClick = {()=>{onRouteChange('home')}}>Home</button>
+              <button className = "grow" onClick = {()=>{onRouteChange('library')}}>Collections</button>
+              <button className = "grow" onClick = {()=>{onRouteChange('about')}}>About</button>
+              <button className = "grow" onClick = {()=>{onRouteChange('contacts')}}>Contacts</button>
+          </div>
         </div>
         <Fade {...fadeProperties}>
           <div className="each-fade">
@@ -35,6 +39,8 @@ const fadeProperties = {
             </div>
             <div>
                 <h1 className = "text-container red f1">Welcome to my online library</h1>
+                <h2 className = "gray">Browse through my amazing collection of literary works</h2>
+                <button className = "grow h3 w5 bw0 br3 white f2 mt2 bg-red">Get Started</button>
             </div>
           </div>
           <div className="each-fade">
@@ -42,7 +48,11 @@ const fadeProperties = {
               <img src={slides[1]}  alt="Literature"/>
             </div>
             <div className = "text-container">
-                <h1 id ="lh1" className ="f1">Explore different genre of literature</h1>
+                <h1 id ="lh1" className ="f1">Explore different genres of literature</h1>
+                <h2 className = "gray">I offer the best of all genres of literature<br></br>
+                from poetry to prose and any other you could think of
+                </h2>
+                <button className = "grow h3 w5 bw0 br3 white f2 mt2" id = "lbutton">Learn More</button>
             </div>
           </div>
           <div className="each-fade">

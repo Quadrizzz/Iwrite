@@ -1,0 +1,70 @@
+#button-container{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+#button-container button{
+    height: 30px;
+    width: 100px;
+    color: rgb(47, 109, 202);
+    border: thin solid transparent;
+    box-shadow: 0px 2px 2px grey;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#main{
+    background: white;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: row;
+    height: 550px;
+    margin-left: 70px;
+    width: 90%;
+    margin-top: 90px;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+}
+
+#main div{
+    background: transparent;
+    display : flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#main div button{
+    border: thin none transparent;
+    margin-top: 10px;
+    height: 40px;
+    width: 120px;
+    font-size: medium;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(47, 109, 202);
+}
+
+#main div input{
+    width: 300px;
+    outline: none;
+    padding: 10px;
+    font-size: large;
+    border-radius: 5px;
+    border: thin solid rgb(47, 109, 202);
+    color: rgb(47, 109, 202);
+    margin-bottom: 10px;
+    height: 50px;
+}

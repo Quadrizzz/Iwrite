@@ -1,0 +1,61 @@
+#button-container{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+#button-container button{
+    height: 30px;
+    width: 100px;
+    color: rgb(47, 109, 202);
+    border: thin solid transparent;
+    box-shadow: 0px 2px 2px grey;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#sub{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    height: 600px;
+    width: 80%;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+}
+
+#sub button{
+    height: 50px;
+    width: 200px;
+    color: rgb(47, 109, 202);
+    border: thin solid transparent;
+    box-shadow: 0px 2px 2px grey;
+    outline: none;
+    border-radius: 5px;
+    background-color: white;
+}
+
+#sub button::before{
+    content: "⇽";
+    margin-right: 5px;
+}
