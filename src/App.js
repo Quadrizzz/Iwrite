@@ -2,8 +2,10 @@ import React from 'react';
 // import About from './Components/About/about'
 // import Slideshow from './Components/Slider/Slider'
 // import Contacts from './Components/Contacts/contacts'
-import Upload from './Components/Upload/upload'
+// import Upload from './Components/Upload/upload'
 // import Register from './Components/Register/register'
+// import ArticleUpload from './Components/articleUpload/articleUpload'
+import Login from './Components/Login/login'
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -17,7 +19,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      route : "home"
+      route : ""
     }
 }
 
@@ -26,17 +28,23 @@ onRouteChange = (input) => {
 }
 
 render(){
-  return(
-    <div>
-      <Upload/>
-      {/* <Register/> */}
-    </div>
-  )
+  // return(
+  //   <div>
+  //     <ArticleUpload/>
+  //     {/* <Upload/> */}
+  //     {/* <Register/> */}
+  //   </div>
+  // )
   // const {route} = this.state
   // if( route === 'home'){
   //   return(
   //     <Slideshow onRouteChange = { this.onRouteChange }/>
   //   )
+  // }
+  // else{
+    return(
+     <Login/>
+    )
   // }
   // if( route === 'about'){
   //   return (

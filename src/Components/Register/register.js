@@ -1,8 +1,27 @@
 import React ,{Component, Fragment} from 'react';
 import axios from 'axios';
+import Particles from 'react-particles-js';
 import './register.css';
-import img from './2678144.jpg'
 
+
+const particle_params = {
+        particles:{
+            line_linked:{
+                shadow:{
+                    enable: true,
+                    color: '#FFDF00',
+                    blur: 10
+                }
+            },
+            number:{
+                value: 100,
+                density:{
+                    enable: true,
+                    value_area: 800
+                }
+            }
+        }
+}
 
 class Register extends Component {
     constructor(){
@@ -14,6 +33,7 @@ class Register extends Component {
             message : ''
         }
     }
+
 
     onChangeName = (e)=>{
         this.setState({Name : e.target.value})
@@ -64,33 +84,47 @@ class Register extends Component {
     render(){
         return(
             <Fragment>
+                <Particles params = {particle_params} className = 'particles'/>
                 <div id ='main'>
                     <div id ="button-container">
-                        <button className = "grow">Home</button>
-                        <button className = "grow" >Collections</button>
-                        <button className = "grow" >About</button>
-                        <button className = "grow" >Contacts</button>
+                        <div>
+                            <button className = "grow" >Home</button>
+                            <button className = "grow" >About</button>
+                            <button className = "grow" >Contacts</button>
+                        </div>
+                        <div>
+                        <button className = "grow" >Login</button>
+                            <button className = "grow" >Register</button>
+                        </div>
                     </div>
                     <div id = 'form-data1'>
                         <form id = 'form1' onSubmit = {this.onSubmit}>
-                            <h1 className = 'blue'>Register to be one of our writers</h1>
+                            <h1>Register to be one of our writers</h1>
                             <div>
-                                <p className = 'blue'>Name :</p>
+                                <p>Name :</p>
                                 <input type = 'text' id = 'name' onChange = {this.onChangeName} >
 
                                 </input>
-                                <p className = 'blue'>Email : </p>
+                                <p>Email : </p>
                                 <input type = 'email' id = "email" onChange = {this.onChangeEmail}  >
 
                                 </input>
-                                <p className = 'blue'>Pen Name :</p>
+
+                                
+                                <p>Password :</p>
+                                <input type = 'password' id = '1penname' onChange = {this.onChangePenname} >
+
+                                </input>
+
+                                <p>Pen Name :</p>
                                 <input type = 'text' id = '1penname' onChange = {this.onChangePenname} >
 
                                 </input>
+
+                                
                             </div>
                             <input type = 'submit' id = 'submit' value = 'Submit' className ="grow"></input>
                         </form>
-                        <img src= {img} alt = 'e-library' width = '600px' height = '600px'></img>
                     </div>
                 </div>
             </Fragment>
