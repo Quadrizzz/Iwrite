@@ -3,9 +3,9 @@ import React from 'react';
 // import Slideshow from './Components/Slider/Slider'
 // import Contacts from './Components/Contacts/contacts'
 // import Upload from './Components/Upload/upload'
-// import Register from './Components/Register/register'
+import Register from './Components/Register/register'
 // import ArticleUpload from './Components/articleUpload/articleUpload'
-import Login from './Components/Login/login'
+// import Login from './Components/Login/login'
 // import {
 //   BrowserRouter as Router,
 //   Switch,
@@ -43,7 +43,7 @@ render(){
   // }
   // else{
     return(
-     <Login/>
+     <Register/>
     )
   // }
   // if( route === 'about'){

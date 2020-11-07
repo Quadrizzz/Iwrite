@@ -48,11 +48,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    border: thin solid gold;
+    border: thin solid #000080;
+    border-radius: 5px;
     width: 25%;
     margin-top: 100px;
     background: black;
-    margin-left: 600px;
+    margin-left: 700px;
 }
 
 .particles{
@@ -115,18 +116,15 @@ input[type = password]{
     outline: none;
 }
 
-input[type = submit]{
+#submit{
     margin-top: 30px;
+    border-radius: 22px;
     width: 150px;
     height: 45px;
     outline:none;
-    color: gold;
+    color: black;
     font-size: large;
-    background: transparent;
-    border-radius: 20px;
+    background: gold;
+    border-radius: 22px;
     border: thin none transparent;
-}
-
-input[type = submit]:hover{
-    text-decoration: underline;
 }

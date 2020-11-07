@@ -32,6 +32,36 @@ class Login extends Component{
         }
     }
 
+    onChangePenname = (e)=>{
+        this.setState({penname : e.target.value })
+    }
+
+    onChangePassword = (e) =>{
+        this.setState({password : e.target.value})
+    }
+
+    onSubmit = ()=>{
+        fetch("http://localhost:5000/login", {
+            method : 'POST',
+            headers : {
+              'Content-Type': 'application/json'
+            },
+            body : JSON.stringify({
+                penname: `${values.penname}`,
+                password: `${values.password}`
+            })
+        })
+        .then( response => response.json())
+        .then(data => {
+            if(data){
+                console.log('success')
+            }
+        })
+        .catch(err => {
+            console.log('failure')
+        })
+    }
+
 
     render(){
         return(
@@ -59,12 +89,12 @@ class Login extends Component{
                                 </input>
 
                                 <p>Password :</p>
-                                <input type = 'password' id = '1penname' onChange = {this.onChangePenname} >
+                                <input type = 'password' id = '1penname' onChange = {this.onChangePassword} >
 
                                 </input>
  
                             </div>
-                            <input type = 'submit' id = 'submit' value = 'Submit' className ="grow"></input>
+                            <input type = 'submit' id = 'submit' value = 'Submit' className ="grow" onClick = {this.onSubmit}></input>
                         </form>
                     </div>
                 </div>
