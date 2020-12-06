@@ -1,25 +1,40 @@
 body{
+    background: #5d99dd;
+}
+
+.main{
     background: white;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: auto;
+    margin-top: 100px;
+    margin-left: 180px;
+    /* padding: 20px; */
+    border-radius: 5px;
+}
+
+.logo_container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .registration_container{
     display: flex;
     flex-direction: column;
-    margin-left: 600px;
-    margin-top: 50px;
     align-items: flex-start;
     padding: 30px 30px 30px 30px;
     height: auto;
     justify-content: flex-start;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0px 3px 3px grey;
-    border: solid thin rgb(190, 185, 185);
-    width: 30%;
+    background: transparent;
+    width: 50%;
 }
 
 .registration_container h1{
-    color: #030342;
+    color: #5d99dd;
 }
 
 .register_form{
@@ -34,12 +49,12 @@ body{
 
 .register_form input{
     margin-top: 10px;
-    width: 100%;
+    width: 70%;
     border: none;
     padding: 10px;
     box-shadow: 0px 3px 3px gray;
     border: solid thin rgb(190, 185, 185);
-    border-radius: 10px;
+    border-radius: 5px;
     outline: none;
 }
 
@@ -51,17 +66,22 @@ body{
 .register_form label{
     align-self: flex-start;
     margin-top: 30px;
-    color: #030342;
+    color: #5d99dd;
 }
 
 .register_form button{
     margin-top: 30px;
+    text-align: center;
     width: 20%;
-    background: #030342;
+    background: #5d99dd;
     color: white;
     padding: 10px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
 }
 
 
@@ -77,7 +97,7 @@ body{
 #button-container button{
     height: 30px;
     width: 100px;
-    color: #030342;
+    color: white;
     border: thin solid transparent;
     outline: none;
     border-radius: 5px;

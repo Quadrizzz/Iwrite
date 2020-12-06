@@ -1,4 +1,4 @@
-.particles{
+/* .particles{
     position: fixed;
     bottom:0;
     top:0;
@@ -6,14 +6,13 @@
     left:0;
     z-index: -1;
 }body{
-    background: black;
+    background: #5d99dd;
 }
 
 #main{
     display: flex;
     flex-direction: column;
     height: 750px;
-    /* margin-left: px; */
     background: transparent;
 }
 
@@ -30,7 +29,6 @@
     width: 100px;
     color: gold;
     border: thin solid transparent;
-    /* box-shadow: 0px 2px 2px grey; */
     outline: none;
     border-radius: 5px;
     background-color: transparent;
@@ -127,4 +125,4 @@ input[type = password]{
     background: gold;
     border-radius: 22px;
     border: thin none transparent;
-}
+} */

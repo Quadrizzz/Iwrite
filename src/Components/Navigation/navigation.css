@@ -1,0 +1,37 @@
+body{
+    background: #5d99dd;
+}
+
+.nav-container{
+    background: #5d99dd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px 5px 5px;
+}
+
+.nav-container div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+}
+
+.nav-container button{
+    background:transparent;
+    margin: 0;
+
+}
+
+.account_div{
+    width: 10%;
+}
+
+#signup_button{
+    background: white;
+    border-radius: 50px;
+    color: #5d99dd;
+}
+

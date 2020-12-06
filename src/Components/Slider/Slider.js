@@ -1,29 +1,31 @@
 import React from 'react';
-import { Fade } from 'react-slideshow-image';
+// import { Fade } from 'react-slideshow-image';
+import Navigation from '../Navigation/navigation';
 import './slider.css';
 import img1 from './27833.jpg';
 import img2 from './3529668.jpg'
 import img3 from './5234.jpg'
-import logo from './Logo.PNG'
+// import logo from './Logo.PNG'
 
-const slides = [
-img1, img2, img3
-]
+// const slides = [
+// img1, img2, img3
+// ]
 
-const fadeProperties = {
-    duration: 5000,
-    transitionDuration: 500,
-    infinite: false,
-    indicators: true,
-    onChange: (oldIndex, newIndex) => {
-      console.log(`fade transition from ${oldIndex} to ${newIndex}`);
-    }
-  }
+// const fadeProperties = {
+//     duration: 5000,
+//     transitionDuration: 500,
+//     infinite: false,
+//     indicators: true,
+//     onChange: (oldIndex, newIndex) => {
+//       console.log(`fade transition from ${oldIndex} to ${newIndex}`);
+//     }
+//   }
    
   const Slideshow = ({onRouteChange}) => {
     return (
       <div className="slide-container">
-        <div id = "header">
+        <h1>Home Page</h1>
+        {/* <div id = "header">
           <img src= {logo} alt ="logo" width = "180px" height ="50px" className ="ml2"></img>
           <div>
               <button className = "grow" onClick = {()=>{onRouteChange('home')}}>Home</button>
@@ -65,7 +67,7 @@ const fadeProperties = {
                 <button className = "grow h3 w5 bw0 br3 white f2 mt2" id = "cbutton">Learn More</button>
             </div>
           </div>
-        </Fade>
+        </Fade> */}
       </div>
     )
   }

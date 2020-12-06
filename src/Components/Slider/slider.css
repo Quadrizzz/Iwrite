@@ -6,6 +6,9 @@
     /* background: transparent; */
 }
 
+h1{
+  color: white;
+}
 #header{
   margin-bottom: 30px;
   display: flex;

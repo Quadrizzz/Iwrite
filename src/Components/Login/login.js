@@ -40,27 +40,27 @@ class Login extends Component{
         this.setState({password : e.target.value})
     }
 
-    onSubmit = ()=>{
-        fetch("http://localhost:5000/login", {
-            method : 'POST',
-            headers : {
-              'Content-Type': 'application/json'
-            },
-            body : JSON.stringify({
-                penname: `${values.penname}`,
-                password: `${values.password}`
-            })
-        })
-        .then( response => response.json())
-        .then(data => {
-            if(data){
-                console.log('success')
-            }
-        })
-        .catch(err => {
-            console.log('failure')
-        })
-    }
+    // onSubmit = ()=>{
+    //     fetch("http://localhost:5000/login", {
+    //         method : 'POST',
+    //         headers : {
+    //           'Content-Type': 'application/json'
+    //         },
+    //         body : JSON.stringify({
+    //             penname: `${values.penname}`,
+    //             password: `${values.password}`
+    //         })
+    //     })
+    //     .then( response => response.json())
+    //     .then(data => {
+    //         if(data){
+    //             console.log('success')
+    //         }
+    //     })
+    //     .catch(err => {
+    //         console.log('failure')
+    //     })
+    // }
 
 
     render(){

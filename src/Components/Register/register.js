@@ -1,6 +1,8 @@
 import React ,{Fragment} from 'react';
 import Particles from 'react-particles-js';
 import './register.css';
+import Logo from './logo.jpg';
+import Navigation from '../Navigation/navigation';
 import { useFormik } from 'formik';
 
 const validate = values =>{
@@ -45,7 +47,7 @@ const particle_params = {
                 }
             },
             number:{
-                value: 200,
+                value: 150,
                 density:{
                     enable: true,
                     value_area: 800
@@ -54,7 +56,7 @@ const particle_params = {
         }
 }
 
-const Register = ()=>{
+const Register = ({set_id})=>{
     const formik = useFormik({
         initialValues: {
           name: '',
@@ -76,14 +78,16 @@ const Register = ()=>{
                   password: `${values.password}`
               })
           })
-          .then( response => response.json())
+          .then( response =>{
+               return response.json()})
           .then(data => {
               if(data){
-                  console.log('success')
+                  console.log(data[data.length-1])
+                  set_id(data[data.length-1].id)
               }
           })
           .catch(err => {
-              console.log('failure')
+              console.log(err)
           })
         },
       });
@@ -91,71 +95,66 @@ const Register = ()=>{
       return (
         <Fragment>
              <Particles params = {particle_params} className = 'particles'/> 
-             <div id ="button-container">
-                <div>
-                    <button className = "grow" >Home</button>
-                    <button className = "grow" >About</button>
-                    <button className = "grow" >Contacts</button>
+            <div className = "main">
+                <div className = "logo_container">
+                    <img src = {Logo} alt = "logo"/>
                 </div>
-                <div>
-                    <button className = "grow" >Login</button>
-                    <button className = "grow" >Register</button>
+                <div className = "registration_container">
+                    <h1>Register</h1>
+                    <form onSubmit={formik.handleSubmit} className = "register_form">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.name}
+                        />
+                        {formik.touched.name && formik.errors.name ? (
+                            <div className = "error">{formik.errors.name}</div>
+                        ) : null}
+                        <label htmlFor="email">Emai</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.email}
+                        />
+                        {formik.touched.email && formik.errors.email ? (
+                            <div className = "error">{formik.errors.email}</div>
+                        ) : null}
+                        <label htmlFor="penname">Penname</label>
+                        <input
+                            id="penname"
+                            name="penname"
+                            type="text"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.penname}
+                        />
+                        {formik.touched.penname && formik.errors.penname ? (
+                            <div className = "error">{formik.errors.penname}</div>
+                        ) : null}
+                        <label htmlFor="password">Password</label>
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.password}
+                        />
+                        {formik.touched.password && formik.errors.password ? (
+                            <div className = "error">{formik.errors.password}</div>
+                        ) : null}
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
             </div>
-             <div className = "registration_container">
-                 <h1>Register</h1>
-                <form onSubmit={formik.handleSubmit} className = "register_form">
-                    <label htmlFor="name">Name</label>
-                    <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.name}
-                    />
-                    {formik.touched.name && formik.errors.name ? (
-                        <div className = "error">{formik.errors.name}</div>
-                    ) : null}
-                    <label htmlFor="email">Emai</label>
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.email}
-                    />
-                    {formik.touched.email && formik.errors.email ? (
-                        <div className = "error">{formik.errors.email}</div>
-                    ) : null}
-                    <label htmlFor="penname">Penname</label>
-                    <input
-                        id="penname"
-                        name="penname"
-                        type="text"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.penname}
-                    />
-                    {formik.touched.penname && formik.errors.penname ? (
-                        <div className = "error">{formik.errors.penname}</div>
-                    ) : null}
-                    <label htmlFor="password">Password</label>
-                    <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        value={formik.values.password}
-                    />
-                    {formik.touched.password && formik.errors.password ? (
-                        <div className = "error">{formik.errors.password}</div>
-                    ) : null}
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+            
         </Fragment>
       );
 }
