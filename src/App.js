@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import About from './Components/About/about'
 import Slideshow from './Components/Slider/Slider'
 import Contacts from './Components/Contacts/contacts'
@@ -17,20 +17,10 @@ import './App.css';
 
 
 
-class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      id : null
-    }
-}
+const App = (props)=> {
+  const [id, set_id] = useState('',{})
 
-set_id = (num)=>{
-  this.setState({id : num})
-  console.log(this.state.id)
-}
 
-render(){
 
     return(
       <div className = "App">
@@ -41,7 +31,7 @@ render(){
               <Route path = "/" exact component = {Slideshow} />
               <Route path = '/signup' 
               render={(routeProps)=>(
-                <Register {...this.props} {...routeProps} set_id = {this.set_id}/>
+                <Register {...props} {...routeProps} set_id = {set_id}/>
               )}
               />
               <Route path = '/login' component = {Login}/>
@@ -52,6 +42,6 @@ render(){
     
     )
 }
-}
+
 
 export default App;

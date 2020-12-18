@@ -2,8 +2,11 @@ import React ,{Fragment} from 'react';
 import Particles from 'react-particles-js';
 import './register.css';
 import Logo from './logo.jpg';
-import Navigation from '../Navigation/navigation';
+import { useHistory } from "react-router-dom";
+// import Navigation from '../Navigation/navigation';
 import { useFormik } from 'formik';
+
+
 
 const validate = values =>{
     const errors = {};
@@ -57,6 +60,7 @@ const particle_params = {
 }
 
 const Register = ({set_id, props})=>{
+    const history = useHistory()
     const formik = useFormik({
         initialValues: {
           name: '',
@@ -83,8 +87,8 @@ const Register = ({set_id, props})=>{
           .then(data => {
               if(data){
                   console.log(data)
-                  set_id(data[data.length-1].id)
-                  props.history.push(`/dashboard/${data[data.length-1].id}`)
+                  set_id(data[0].id)
+                  history.push(`/dashboard/${data[0].id}`)
               }
           })
           .catch(err => {
