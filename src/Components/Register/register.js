@@ -56,7 +56,7 @@ const particle_params = {
         }
 }
 
-const Register = ({set_id})=>{
+const Register = ({set_id, props})=>{
     const formik = useFormik({
         initialValues: {
           name: '',
@@ -82,8 +82,9 @@ const Register = ({set_id})=>{
                return response.json()})
           .then(data => {
               if(data){
-                  console.log(data[data.length-1])
+                  console.log(data)
                   set_id(data[data.length-1].id)
+                  props.history.push(`/dashboard/${data[data.length-1].id}`)
               }
           })
           .catch(err => {

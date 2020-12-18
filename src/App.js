@@ -40,8 +40,8 @@ render(){
             <Switch>
               <Route path = "/" exact component = {Slideshow} />
               <Route path = '/signup' 
-              render={(props)=>(
-                <Register {...props} set_id = {this.set_id}/>
+              render={(routeProps)=>(
+                <Register {...this.props} {...routeProps} set_id = {this.set_id}/>
               )}
               />
               <Route path = '/login' component = {Login}/>
