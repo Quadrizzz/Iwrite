@@ -86,15 +86,15 @@ const Register = ({set_id, props})=>{
                return response.json()})
           .then(data => {
               if(data){
-                  console.log(data)
-                  set_id(data[0].id)
-                  history.push(`/dashboard/${data[0].id}`)
+                  console.log(data.id)
+                  set_id(data.id)
+                  history.push(`/dashboard/${data.id}`)
               }
           })
           .catch(err => {
               console.log(err)
           })
-        },
+        }
       });
 
       return (
