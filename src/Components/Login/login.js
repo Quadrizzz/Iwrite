@@ -1,106 +1,103 @@
-import React ,{Component, Fragment} from 'react';
-import axios from 'axios';
+import React ,{Fragment} from 'react';
 import Particles from 'react-particles-js';
-import './login.css'
+// import './register.css';
+import Logo from './logo.jpg';
+import { useHistory } from "react-router-dom";
+import Navigation from '../Navigation/navigation';
+import { useFormik } from 'formik';
 
 
+
+   
 const particle_params = {
-    particles:{
-        line_linked:{
-            shadow:{
-                enable: true,
-                color: '#FFDF00',
-                blur: 10
+        particles:{
+            line_linked:{
+                shadow:{
+                    enable: true,
+                    color: '000080',
+                    blur: 1
+                }
+            },
+            number:{
+                value: 150,
+                density:{
+                    enable: true,
+                    value_area: 800
+                }
             }
+        }
+}
+
+const Login = ({set_id, props})=>{
+    const history = useHistory()
+    const formik = useFormik({
+        initialValues: {
+          penname: '',
+          password:''
         },
-        number:{
-            value: 100,
-            density:{
-                enable: true,
-                value_area: 800
-            }
+        onSubmit: values => {
+          fetch("http://localhost:5000/login", {
+              method : 'POST',
+              headers : {
+                'Content-Type': 'application/json'
+              },
+              body : JSON.stringify({
+                  penname: `${values.penname}`,
+                  password: `${values.password}`
+              })
+          })
+          .then( response =>{
+               return response.json()})
+          .then(data => {
+              if(data.id){
+                  console.log(data.id)
+                  set_id(data.id)
+                  history.push(`/dashboard/${data.id}`)
+              }
+          })
+          .catch(err => {
+              console.log(err)
+          })
         }
-    }
-}
+      });
 
-class Login extends Component{
-    constructor(){
-        super();
-        this.state = {
-            penname:'',
-            password:''
-        }
-    }
-
-    onChangePenname = (e)=>{
-        this.setState({penname : e.target.value })
-    }
-
-    onChangePassword = (e) =>{
-        this.setState({password : e.target.value})
-    }
-
-    // onSubmit = ()=>{
-    //     fetch("http://localhost:5000/login", {
-    //         method : 'POST',
-    //         headers : {
-    //           'Content-Type': 'application/json'
-    //         },
-    //         body : JSON.stringify({
-    //             penname: `${values.penname}`,
-    //             password: `${values.password}`
-    //         })
-    //     })
-    //     .then( response => response.json())
-    //     .then(data => {
-    //         if(data){
-    //             console.log('success')
-    //         }
-    //     })
-    //     .catch(err => {
-    //         console.log('failure')
-    //     })
-    // }
-
-
-    render(){
-        return(
-            <Fragment>
-                <Particles params = {particle_params} className = 'particles'/>
-                <div id ='main'>
-                    <div id ="button-container">
-                        <div>
-                            <button className = "grow" onClick = {()=>{this.props.onRouteChange('home')}}>Home</button>
-                            <button className = "grow" >About</button>
-                            <button className = "grow" >Contacts</button>
-                        </div>
-                        <div>
-                        <button className = "grow" >Login</button>
-                            <button className = "grow" >Register</button>
-                        </div>
-                    </div>
-                    <div id = 'form-data1'>
-                        <form id = 'form1' onSubmit = {this.onSubmit}>
-                            <h1>Login</h1>
-                            <div>
-                                <p>Pen Name :</p>
-                                <input type = 'text' id = '1penname' onChange = {this.onChangePenname} >
-
-                                </input>
-
-                                <p>Password :</p>
-                                <input type = 'password' id = '1penname' onChange = {this.onChangePassword} >
-
-                                </input>
- 
-                            </div>
-                            <input type = 'submit' id = 'submit' value = 'Submit' className ="grow" onClick = {this.onSubmit}></input>
-                        </form>
-                    </div>
+      return (
+        <Fragment>
+            <Navigation/>
+             <Particles params = {particle_params} className = 'particles'/> 
+            <div className = "main">
+                <div className = "logo_container">
+                    <img src = {Logo} alt = "logo"/>
                 </div>
-            </Fragment>
-        )
-    }
+                <div className = "registration_container">
+                    <h1>Login</h1>
+                    <form onSubmit={formik.handleSubmit} className = "register_form">
+                        <label htmlFor="penname">Penname</label>
+                        <input
+                            id="penname"
+                            name="penname"
+                            type="text"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.penname}
+                        />
+                        <label htmlFor="password">Password</label>
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.password}
+                        />
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            
+        </Fragment>
+      );
 }
+
 
 export default Login

@@ -3,7 +3,7 @@ import Particles from 'react-particles-js';
 import './register.css';
 import Logo from './logo.jpg';
 import { useHistory } from "react-router-dom";
-// import Navigation from '../Navigation/navigation';
+import Navigation from '../Navigation/navigation';
 import { useFormik } from 'formik';
 
 
@@ -85,7 +85,7 @@ const Register = ({set_id, props})=>{
           .then( response =>{
                return response.json()})
           .then(data => {
-              if(data){
+              if(data.id){
                   console.log(data.id)
                   set_id(data.id)
                   history.push(`/dashboard/${data.id}`)
@@ -99,6 +99,7 @@ const Register = ({set_id, props})=>{
 
       return (
         <Fragment>
+            <Navigation/>
              <Particles params = {particle_params} className = 'particles'/> 
             <div className = "main">
                 <div className = "logo_container">

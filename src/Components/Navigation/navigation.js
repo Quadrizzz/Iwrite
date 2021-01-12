@@ -7,7 +7,7 @@ const Navigation = ()=>{
     return (
 
         <div className ="nav-container">
-             <div>
+             <div className = "options">
                 <Link to = '/'>
                     <button >Home</button>
                 </Link>

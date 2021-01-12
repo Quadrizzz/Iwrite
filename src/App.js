@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import About from './Components/About/about'
+// import About from './Components/About/about'
 import Slideshow from './Components/Slider/Slider'
-import Contacts from './Components/Contacts/contacts'
-import Upload from './Components/Upload/upload'
+// import Contacts from './Components/Contacts/contacts'
+// import Upload from './Components/Upload/upload'
 import Register from './Components/Register/register'
-import ArticleUpload from './Components/articleUpload/articleUpload'
+import Dashboard from './Container/Dashboard'
+// import ArticleUpload from './Components/articleUpload/articleUpload'
 import Login from './Components/Login/login'
-import Navigation from './Components/Navigation/navigation'
+// import Navigation from './Components/Navigation/navigation'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 
@@ -26,7 +26,6 @@ const App = (props)=> {
       <div className = "App">
         <Router>
           <div>
-            <Navigation/>
             <Switch>
               <Route path = "/" exact component = {Slideshow} />
               <Route path = '/signup' 
@@ -34,7 +33,15 @@ const App = (props)=> {
                 <Register {...props} {...routeProps} set_id = {set_id}/>
               )}
               />
-              <Route path = '/login' component = {Login}/>
+              <Route path = '/login' 
+              render = {(routeProps)=>(
+                <Login {...props} {...routeProps} set_id = {set_id}/>
+              )}
+             />
+             <Route path = '/dashboard/:id'
+             render = {(routeProps)=>(
+               <Dashboard {...props} {...routeProps} id = {id}/>
+             )}/>
             </Switch>
           </div>
         </Router>
