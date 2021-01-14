@@ -15,8 +15,8 @@ const ProfileImage = ()=>{
         console.log(image)
         const info = new FormData();
         info.append('file', image)
-        info.append('id', `${id}`)
-        fetch("http://localhost:5000/profileimage",{
+        info.append('upload_preset', 'profileimage')
+        fetch('https://api.cloudinary.com/v1_1/azur-xx/image/upload',{
             method: 'POST',
             body: info
         })
@@ -24,7 +24,26 @@ const ProfileImage = ()=>{
             return response.json()
         })
         .then(data => {
-            console.log(data)
+            console.log(data.secure_url)
+            fetch("http://localhost:5000/profileimage", {
+                method : 'POST',
+                headers : {
+                  'Content-Type': 'application/json'
+                },
+                body : JSON.stringify({
+                    id: `${id}`,
+                    url: `${data.secure_url}`
+                })
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(result => {
+                console.log(result)
+            })
+            .catch(err=> {
+                console.log(err)
+            })
         })
         .catch(err => {
             console.log('Not successful')
