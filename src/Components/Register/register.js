@@ -88,7 +88,7 @@ const Register = ({set_id, props})=>{
               if(data.id){
                   console.log(data.id)
                   set_id(data.id)
-                  history.push(`/dashboard/${data.id}`)
+                  history.push(`/uploadprofileimage`)
               }
           })
           .catch(err => {

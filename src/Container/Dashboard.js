@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Dashboard.css'
 
 const Dashboard = ({id})=>{
@@ -6,7 +6,7 @@ const Dashboard = ({id})=>{
         fetchItems();
     }, [])
 
-    const [data, setdata] = useState('',{})
+    const [userdata, setdata] = useState('',{})
 
     const fetchItems = ()=>{
         fetch('http://localhost:5000/getprofile', {
@@ -20,8 +20,8 @@ const Dashboard = ({id})=>{
         })
         .then( response =>{ return response.json()})
         .then(data => {
-            if(data.id){
-                setdata(data)
+            if(data[0].id){
+                setdata(data[0])
             }
             else{
                 console.log('error')
@@ -32,7 +32,7 @@ const Dashboard = ({id})=>{
 
     return (
         <div>
-            <h1>{id}{data}</h1>
+            <h1>{id}{userdata.name}</h1>
         </div>
     )
 }
