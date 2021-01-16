@@ -1,7 +1,9 @@
 import React , {useState} from 'react'
+import { useHistory } from "react-router-dom";
 import './profileimage.css'
 
-const ProfileImage = ()=>{
+const ProfileImage = ({id, props})=>{
+    const history = useHistory()
     // const [loading, setLoading] = useState(false)
     const [image, setImage] = useState("")
     
@@ -11,7 +13,8 @@ const ProfileImage = ()=>{
         console.log(image)
     }
 
-    const uploadImage = ({id})=>{
+    const uploadImage = ()=>{
+        console.log(id)
         console.log(image)
         const info = new FormData();
         info.append('file', image)
@@ -26,7 +29,7 @@ const ProfileImage = ()=>{
         .then(data => {
             console.log(data.secure_url)
             fetch("http://localhost:5000/profileimage", {
-                method : 'POST',
+                method : 'PUT',
                 headers : {
                   'Content-Type': 'application/json'
                 },
@@ -39,7 +42,8 @@ const ProfileImage = ()=>{
                 return response.json()
             })
             .then(result => {
-                console.log(result)
+                console.log(result[0])
+                history.push(`/dashboard/${id}`)
             })
             .catch(err=> {
                 console.log(err)
