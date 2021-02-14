@@ -1,9 +1,9 @@
 body{
-    background: #5d99dd;
+    background: transparent;
 }
 
 .nav-container{
-    background: #5d99dd;
+    background: transparent;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -44,7 +44,7 @@ body{
 #signup_button{
     background: white;
     border-radius: 50px;
-    color: #5d99dd;
+    color: #111E6C;
     border: thin transparent none;
     padding: 8px 14px 8px 14px;
 }
