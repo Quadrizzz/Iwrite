@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 import { useHistory } from "react-router-dom";
 import './profileimage.css';
 import Dropzone from 'react-dropzone'
+import picture from './user.png'
 
 const ProfileImage = ({id, props})=>{
     const history = useHistory()
@@ -63,13 +64,16 @@ const ProfileImage = ({id, props})=>{
     return(
         <div className = 'main_upload'>
             <div className = "image_div">
-                <img src = {image} alt = "  "></img>
+                <img src = {image ?  URL.createObjectURL(image): picture} alt = "  "></img>
             </div>
             <h1>Add a profile image</h1>
             <p>You can skip this step and add a picture later</p>
             <Dropzone onDrop={acceptedFiles =>{ 
                 setIsImage(true)
-                setImage(acceptedFiles[0])}}>
+                setImage(acceptedFiles[0])
+            }
+            }
+                >
                 {({getRootProps, getInputProps}) => (
                 <section>
                     <div {...getRootProps()}>
