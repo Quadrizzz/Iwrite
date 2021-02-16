@@ -10,17 +10,30 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: transparent;
     width: 40%;
     height: auto;
     padding: 50px 50px 50px 50px;
-    margin-top: 200px;
-    margin-left: 500px;
+    margin-top: 120px;
+    margin-left: 570px;
     border-radius: 7px;
 }
 
 .main_upload h1{
-    color: #5d99dd;
+    color: white;
+    margin-bottom: 0px;
+}
+
+.main_upload p{
+    color: white;
+}
+
+.image_div{
+    height: 185px;
+    width: 30%;
+    background: white;
+    border: thin none transparent;
+    border-radius: 200px;
 }
 
 section{
@@ -29,8 +42,9 @@ section{
     align-items: center;
     justify-content: center;
     background: transparent;
-    height: 300px;
+    height: 100px;
     width: 100%;
+    margin-top: 20px;
 }
 
 section div{
@@ -44,7 +58,7 @@ section div{
     outline: none;
     cursor: pointer;
     width: 100%;
-    height: 300px;
+    height: 100px;
 }
 
 section div p{
@@ -58,14 +72,14 @@ section div p{
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .buttons button{
     border: thin none transparent;
     border-radius: 20px;
-    background: #5d99dd;
-    color: white;
+    background: white;
+    color: #111E6C;
     margin-left: 10px;
     padding: 10px 10px 10px 10px;
     outline: none;
@@ -73,6 +87,6 @@ section div p{
 
 #skip{
     background: transparent;
-    color: #5d99dd;
+    color: white;
     outline: none;
 }

@@ -62,7 +62,11 @@ const ProfileImage = ({id, props})=>{
 
     return(
         <div className = 'main_upload'>
+            <div className = "image_div">
+                <img src = {image} alt = "  "></img>
+            </div>
             <h1>Add a profile image</h1>
+            <p>You can skip this step and add a picture later</p>
             <Dropzone onDrop={acceptedFiles =>{ 
                 setIsImage(true)
                 setImage(acceptedFiles[0])}}>

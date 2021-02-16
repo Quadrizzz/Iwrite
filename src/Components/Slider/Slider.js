@@ -75,6 +75,7 @@ const particle_params = {
         },
         validate,
         onSubmit: values => {
+          setLoading(true)
           fetch("http://localhost:5000/register", {
               method : 'POST',
               headers : {
@@ -91,12 +92,13 @@ const particle_params = {
                return response.json()})
           .then(data => {
               if(data.id){
-                  console.log(data.id)
                   set_id(data.id)
                   history.push(`/uploadprofileimage`)
+                  setLoading(false)
               }
           })
           .catch(err => {
+              setLoading(false)
               console.log(err)
           })
         }
@@ -113,9 +115,30 @@ const particle_params = {
     }
 
     const onSubmit = ()=>{
-        console.log(penname)
-        console.log(password)
         setLoading(true)
+        fetch("http://localhost:5000/login", {
+            method : 'POST',
+            headers : {
+              'Content-Type': 'application/json'
+            },
+            body : JSON.stringify({
+                penname: `${penname}`,
+                password: `${password}`
+            })
+        })
+        .then( response =>{
+             return response.json()})
+        .then(data => {
+            if(data.id){
+                console.log(data.id)
+                set_id(data.id)
+                history.push(`/dashboard/${data.id}`)
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            setLoading(false)
+        })
     }
 
     return (
@@ -204,7 +227,7 @@ const particle_params = {
                             type="password"
                             onChange = {changePassword}
                         />
-                        <button type="submit" class = "login_submit" onClick = {()=>{onSubmit()}}>Submit</button>
+                        <button type="submit" className = "login_submit" onClick = {()=>{onSubmit()}}>Submit</button>
                     </div>
               </div>
 

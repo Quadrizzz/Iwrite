@@ -28,7 +28,12 @@ const App = (props)=> {
         <Router>
           <div>
             <Switch>
-              <Route path = "/" exact component = {Slideshow} />
+            <Route path = '/' 
+              exact
+              render = {(routeProps)=>(
+                <Slideshow {...props} {...routeProps} set_id = {set_id}/>
+              )}
+             />
               <Route path = '/signup' 
               render={(routeProps)=>(
                 <Register {...props} {...routeProps} set_id = {set_id}/>
