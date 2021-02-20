@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Particles from 'react-particles-js';
 // import { Fade } from 'react-slideshow-image';
 import spin from './spin.gif'
@@ -106,12 +106,10 @@ const particle_params = {
 
     const changePassword = (event)=>{
         setPassword(event.target.value)
-        console.log(password)
     }
 
     const changePenname = (event)=>{
         setPenname(event.target.value)
-        console.log(penname)
     }
 
     const onSubmit = ()=>{
@@ -130,7 +128,6 @@ const particle_params = {
              return response.json()})
         .then(data => {
             if(data.id){
-                console.log(data.id)
                 set_id(data.id)
                 history.push(`/dashboard/${data.id}`)
             }

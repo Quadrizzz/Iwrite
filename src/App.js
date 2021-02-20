@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 // import About from './Components/About/about'
 import Slideshow from './Components/Slider/Slider'
 // import Contacts from './Components/Contacts/contacts'
 // import Upload from './Components/Upload/upload'
-import Register from './Components/Register/register'
-import Dashboard from './Container/Dashboard'
+import Dashboard from './Container/Dashboard/Dashboard'
 // import ArticleUpload from './Components/articleUpload/articleUpload'
-import Login from './Components/Login/login'
 import ProfileImage from './Components/Addprofileimage/profileimage'
 // import Navigation from './Components/Navigation/navigation'
 import {
@@ -21,8 +19,6 @@ import './App.css';
 const App = (props)=> {
   const [id, set_id] = useState('',{})
 
-
-
     return(
       <div className = "App">
         <Router>
@@ -34,16 +30,6 @@ const App = (props)=> {
                 <Slideshow {...props} {...routeProps} set_id = {set_id}/>
               )}
              />
-              <Route path = '/signup' 
-              render={(routeProps)=>(
-                <Register {...props} {...routeProps} set_id = {set_id}/>
-              )}
-              />
-              <Route path = '/login' 
-              render = {(routeProps)=>(
-                <Login {...props} {...routeProps} set_id = {set_id}/>
-              )}
-             />
              <Route path = '/uploadprofileimage' 
              render = {(routeProps)=>(
                <ProfileImage {...props} {...routeProps} id = {id} />
@@ -52,7 +38,7 @@ const App = (props)=> {
              />
              <Route path = '/dashboard/:id'
              render = {(routeProps)=>(
-               <Dashboard {...props} {...routeProps} id = {id}/>
+               <Dashboard {...props} {...routeProps} id = {id} set_id = {set_id}/>
              )}/>
             </Switch>
           </div>
