@@ -1,35 +1,26 @@
 import React, {useState, useEffect} from 'react';
+import Store from 'store';
 import './Dashboard.css'
 
 const Dashboard = ({id, set_id , props})=>{
     const [userdata, setdata] = useState('',{})
-    const [backup_id, set_backup] = useState(id, '')
+    // const [backup_id, set_backup] = useState(id, '')
 
     useEffect(() => {
-        localStorage.setItem("id", id)
-        const test = localStorage.getItem("id")
-        console.log(`this is ${test}`)
-    }, [id])
-
-    useEffect(() => {
-        const parsedId = (localStorage.getItem("id"))
-        set_backup(parsedId)
-        console.log(backup_id)
-    }, [backup_id])
-
-
-    useEffect( ()=>{
-        fetchItems();
-    })
-
-    const fetchItems = ()=>{
-        fetch('http://localhost:5000/getprofile', {
+        let mounted = true
+        const parsedId = Store.get('id')
+        if(mounted){
+            set_id(parsedId)
+        }
+        
+        
+        fetch('http://localhost:5000/getprofile',  {
             method: 'POST',
             headers : {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id : `${id ? id : backup_id}`
+                id : `${id}`
             })
         })
         .then( response =>{ return response.json()})
@@ -43,9 +34,20 @@ const Dashboard = ({id, set_id , props})=>{
             }
         })
         .catch(err => {
-            console.log(err)
+            // console.log(err)
+            console.log("Didn't fetch")
         })
-    }
+
+        return ()=>{
+            mounted = false
+        }
+    })
+
+
+    // useEffect( ()=>{
+    //     fetchItems();
+    // })
+
 
     return (
         <div className = "main">

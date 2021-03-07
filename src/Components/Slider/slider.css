@@ -1,5 +1,5 @@
 body{
-  background: #111E6C;
+  background:  #263ec7;
 }
 
 .particles{
@@ -15,7 +15,7 @@ body{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 50px;
   padding: 5px 20px 5px 20px;
 }
@@ -24,6 +24,10 @@ body{
   color: white;
   display: flex;
   flex-direction: column;
+}
+
+.text{
+  color: white;
 }
 
 .loading_div{
@@ -61,106 +65,11 @@ body{
   align-items: center;
 }
 
-.signup_form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* padding: 5px 10px 5px 10px; */
-}
-
-.login_form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* padding: 5px 10px 5px 10px; */
-}
 
 .dont_show{
   display: none;
 }
 
-.signup_form h1{
-  color: #111E6C;
-}
-
-.signup{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  padding: 5px 20px 5px 20px;
-}
-
-.signup label{
-  font-size: 12pt;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  color: grey;
-}
-
-.signup input{
-  border: thin none transparent;
-  background: rgb(231, 231, 231);
-  padding-left: 5px;
-  width: 100%;
-  height: 40px;
-  border-radius: 4px;
-  margin-bottom: 30px;
-  outline-color: #4472d6;
-}
-
-#submit{
-  height: 40px;
-  width: 100%;
-  border-radius: 5px;
-  border: thin none transparent;
-  margin-top: 20px;
-  background: #111E6C;
-  color: white;
-}
-
-.login_submit{
-  height: 40px;
-  width: 100%;
-  border-radius: 5px;
-  border: thin none transparent;
-  margin-top: 50px;
-  background: #111E6C;
-  color: white;
-}
-
-.switch-button{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  /* background: red; */
-  margin-top: 40px;
-}
-
-.switch-button button{
-  width: 50%;
-  height: 50px;
-  border: thin none transparent;
-  background: transparent;
-  outline: none;
-}
-
-#button1{
-  border-right: thin solid #1d2d8b;
-  background: #111E6C;
-  color: white;
-}
-
-#button2{
-  border-right: thin solid #1d2d8b;
-  background: #111E6C;
-  color: white;
-}
 
 #disabled{
   width: 50%;

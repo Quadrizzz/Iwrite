@@ -1,0 +1,65 @@
+.div_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.div_registration_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    width: 100%;
+    border: 1px solid rgba(200, 200, 200, 0.2);
+    height: 50px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    transition: all, 240ms ease-in-out;
+
+}
+
+input:focus{
+    outline: none;
+}
+
+.error{
+    color: red;
+    margin: 0 0 10px 0;
+}
+
+button{
+    background: #263ec7;
+    border-radius: 50px;
+    width: 100%;
+    color: white;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    margin-top: 10px;
+    outline: none;
+}
+
+button:hover{
+    filter: brightness(1.03);
+}
+
+p{
+    margin: 10px 0 10px 0;
+    color: rgb(153, 152, 152);
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: left;
+    align-self: flex-start;
+}

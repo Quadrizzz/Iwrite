@@ -31,7 +31,7 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .account_div button{
@@ -43,7 +43,9 @@ body{
 
 #signup_button{
     background: white;
-    border-radius: 50px;
+    border-radius: 30px;
+    width: 100%;
+    height: 40px;
     color: #111E6C;
     border: thin transparent none;
     padding: 8px 14px 8px 14px;
