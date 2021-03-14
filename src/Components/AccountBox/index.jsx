@@ -83,7 +83,7 @@ const InnerContainer = Styled.div`
     margin-top: 50px
 `;
 
-const HyperLink = Styled.a`
+const HyperLink = Styled.h5`
     font-weight : 700;
     color : #263ec7;
     font-size : 16px;
@@ -112,7 +112,7 @@ const backdropVariant = {
 
 const expandedTransition = {
     type: "spring",
-    duration : 3.0,
+    duration : 2.8,
     stiffness : 30
 }
 
@@ -125,14 +125,14 @@ export function AccountBox({props, set_id, setLoading}){
         playAnimation()
         setTimeout(()=>{
             setActive("signup")
-        }, 1500)
+        }, 500)
     }
 
     const setToSignIn = ()=>{
         playAnimation()
         setTimeout(()=>{
             setActive("signin")
-        }, 1500)
+        }, 500)
     }
 
     const playAnimation = ()=>{
