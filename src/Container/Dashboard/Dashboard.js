@@ -5,6 +5,8 @@ import book from './book.png'
 import dash from './dashboard.png'
 import settings from './settings.png'
 import down from './down.png'
+import download from './Downloads.png'
+import upload from './Uploads.png'
 
 
 const Dashboard = ({id, set_id , props})=>{
@@ -75,16 +77,24 @@ const Dashboard = ({id, set_id , props})=>{
                 </div>
             </div>
             <div className = "main_section">
+                <h1 className = "welcome_text">Welcome, {userdata.name}</h1>
                 <div className = "main_section_records">
                     <div className = "upload_download">
                         <div className = "download">
                                 <h1>Downloads</h1>
+                                <img src = {download} alt = "work"></img>
                                 <h2>{userdata.downloads}</h2>
+                                <button>Download</button>
                         </div>
                         <div className = "uploads">
                                 <h1>Uploads</h1>
+                                <img src = {upload} alt = "work"></img>
                                 <h2>{userdata.uploads}</h2>
+                                <button>Upload</button>
                         </div>
+                    </div>
+                    <div className = "profile_container">
+                        
                     </div>
                 </div>
             </div>
