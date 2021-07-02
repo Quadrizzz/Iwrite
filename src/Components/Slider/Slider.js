@@ -38,7 +38,7 @@ const particle_params = {
             <img src = {spin} alt = "animation"></img>
         </div>
         <Particles params = {particle_params} className = 'particles'/> 
-        <div className = "main_container">
+        <div className = "maincontainer">
             <div className = "text_div">
               <h1 className = "text">Welcome,<br></br>to my online library </h1>
               <p className = "text">Reading is fun,<br></br>I make it more fun</p>

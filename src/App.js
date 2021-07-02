@@ -1,12 +1,13 @@
 import React, { useState} from 'react';
 // import About from './Components/About/about'
-import Slideshow from './Components/Slider/Slider'
+// import Slideshow from './Components/Slider/Slider'
 // import Contacts from './Components/Contacts/contacts'
-// import Upload from './Components/Upload/upload'
-import Dashboard from './Container/Dashboard/Dashboard'
+import Upload from './Components/Upload/upload'
+// import Dashboard from './Container/Dashboard/Dashboard'
 // import ArticleUpload from './Components/articleUpload/articleUpload'
-import ProfileImage from './Components/Addprofileimage/profileimage'
+// import ProfileImage from './Components/Addprofileimage/profileimage'
 // import Navigation from './Components/Navigation/navigation'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,11 +18,12 @@ import './App.css';
 
 
 const App = (props)=> {
-  const [id, set_id] = useState('',{})
+  // const [id, set_id] = useState('',{})
 
     return(
       <div className = "App">
-        <Router>
+        <Upload/>
+        {/* <Router>
           <div>
             <Switch>
             <Route path = '/' 
@@ -42,7 +44,7 @@ const App = (props)=> {
              )}/>
             </Switch>
           </div>
-        </Router>
+        </Router> */}
       </div>
     
     )

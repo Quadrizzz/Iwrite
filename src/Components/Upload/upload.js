@@ -17,38 +17,42 @@ class Upload extends Component {
             penname : '',
             message : '',
             widget : widget,
-            uploadMessage : ''
+            uploadMessage : '',
+            formstep: 0,
+            errorMessage: false,
+            bookName: '',
+            Author: '',
+            genre: ''
         }
 
+        this.setbookName = this.setbookName.bind(this);
+        this.setAuthor = this.setAuthor.bind(this)
+        this.setGenre = this.setGenre.bind(this)
        
     }
 
 
 
-    onChange = (event)=>{
-        this.setState({penname : event.target.value})
-    }
-
     showWidget = (widget)=>{
         widget.open()
     }
 
-    validateUpdate = ()=>{
-        fetch('http://localhost:5000/validateUpload' , {
-            method : 'post',
-            headers : {'Content-Type' : 'application/json'},
-            body : JSON.stringify({
-                penname : this.state.penname
-            })
-        }).then(response => {
-            if(response.status === 200){
-                this.showWidget(this.state.widget)
-            }
-            else{
-                this.setState({uploadMessage : 'Register to be a writer'})
-            }
-        })
-   }
+//     validateUpdate = ()=>{
+//         fetch('http://localhost:5000/validateUpload' , {
+//             method : 'post',
+//             headers : {'Content-Type' : 'application/json'},
+//             body : JSON.stringify({
+//                 penname : this.state.penname
+//             })
+//         }).then(response => {
+//             if(response.status === 200){
+//                 this.showWidget(this.state.widget)
+//             }
+//             else{
+//                 this.setState({uploadMessage : 'Register to be a writer'})
+//             }
+//         })
+//    }
 
     checkUploadResult =  (result)=>{
         if(result.event === 'success'){
@@ -76,63 +80,64 @@ class Upload extends Component {
         }
     }
 
-    render(){
-        // let widget = window.cloudinary.createUploadWidget({
-        //     cloudName : 'azul',
-        //     uploadPreset : 'mybooks'
-        // },
-        // (error , result)=>{this.checkUploadResult(result)}
-        // )
-        if(!this.state.uploadMessage){
-            return(
-                <Fragment>
-                    <div id ="button-container">
-                        <button className = "grow">Home</button>
-                        <button className = "grow" >Collections</button>
-                        <button className = "grow" >About</button>
-                        <button className = "grow" >Contacts</button>
-                    </div>
-                    <div id = 'main'>
-                        <div>
-                            <h1 className = "f1 blue">Upload a book to our library</h1>
-                            <p className = "f2 gray">Add your own works or other<br></br>or other people's work<br></br>
-                            (with their permission)<br></br> and share it to the world.
-                            </p>
-                            <input type = 'text' placeholder = 'Enter your pen name' id = 'penname' onChange = {this.onChange}></input>
-                            <button className = "grow" onClick = {this.validateUpdate}>Upload File</button>
-                        </div>
-                        <img src = {img} width = '500px' height = '500px' alt = " "></img>
-                    </div>
-                </Fragment>
-            )
+    setbookName = (event)=>{
+        this.setState({bookName : event.target.value})
+    }
+
+    setAuthor = (event)=>{
+        this.setState({Author : event.target.value})
+    }
+
+    setGenre = (event)=>{
+        this.setState({genre : event.target.value})
+    }
+    step = (n)=>{
+        if(n === 1){
+            if(this.state.Author === '' || this.state.bookName === ''){
+                this.setState({errorMessage : true})
+            }
+            else{
+                this.setState({formstep : n})
+                this.setState({errorMessage : false})
+            }
         }
         else{
+            this.setState({formstep : n})
+            this.setState({errorMessage : false})
+        }
+
+    }
+    render(){
             return(
                 <Fragment>
-                    <div id ="button-container">
-                        <button className = "grow">Home</button>
-                        <button className = "grow" >Collections</button>
-                        <button className = "grow" >About</button>
-                        <button className = "grow" >Contacts</button>
-                    </div>
-                    <div>
-                        {this.state.uploadMessage}
-                    </div>
                     <div id = 'main'>
-                        <div>
-                            <h1 className = "f1 blue">Upload a book to our library</h1>
-                            <p className = "f2 gray">Add your own works or other<br></br>or other people's work<br></br>
-                            (with their permission)<br></br> and share it to the world.
-                            </p>
-                            <input type = 'text' placeholder = 'Enter your pen name' id = 'penname' onChange = {this.onChange}></input>
-                            <button className = "grow" onClick = {this.validateUpdate}>Upload File</button>
+                        
+                        <div className = "sub_main">
+                            <div className = "form">
+                                <h1 className = "f1 blue">Upload a book</h1>
+                                { this.state.formstep === 1 ?
+                                <div class = "form_button_container">
+                                    <button className = "grow gen_button" onClick = {()=>{ this.showWidget(this.state.widget)}}>Upload File</button>
+                                    <button className = "grow prev_button" onClick = {()=>{this.step(0)}}>Previous</button>
+                                </div> : 
+                                    <div className = "form_input_container">
+                                        {this.state.errorMessage ? <p className = "red">Please enter the Book name, Author's name and Genre</p> : null}
+                                        <input type = 'text' placeholder = {this.state.bookName !== '' ? this.state.bookName : "Book Name"} onChange = {this.setbookName}>
+                                        </input>
+                                        <input type = 'text' placeholder = {this.state.Author !== '' ? this.state.Author : "Author"} onChange = {this.setAuthor}></input>
+                                        <input type = 'text' placeholder = {this.state.genre !== '' ? this.state.genre : "Genre"} onChange = {this.setGenre}></input>
+                                        <button className = "grow gen_button" onClick = {()=>{this.step(1)}}>Next</button>
+                                    </div>
+                                }
+                            </div>
+                            <img src = {img} width = '500px' height = '500px' alt = " "></img>
                         </div>
-                        <img src = {img} width = '500px' height = '500px' alt = " "></img>
                     </div>
                 </Fragment>
             )
         }
+       
     }
-}
+
 
 export default Upload;

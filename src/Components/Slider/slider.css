@@ -11,13 +11,14 @@ body{
   z-index: -1;
 }
 
-.main_container{
+.maincontainer{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   margin-top: 50px;
   padding: 5px 20px 5px 20px;
+  width: 100%;
 }
 
 .text_div{

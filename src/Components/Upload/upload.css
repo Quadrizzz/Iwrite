@@ -23,7 +23,9 @@
     background: white;
     display: flex;
     border-radius: 10px;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     height: 550px;
     margin-left: 70px;
     width: 90%;
@@ -38,14 +40,48 @@
   ;
 }
 
-#main div{
-    background: transparent;
-    display : flex;
-    flex-direction: column;
-    padding: 10px;
+.sub_main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
-#main div button{
+.form_input_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.prev_button{
+    background: red;
+    height: 40px;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.gen_button{
+    background: rgb(47, 109, 202);
+    height: 40px;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+
+.form_button_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* #main div button{
     border: thin none transparent;
     margin-top: 10px;
     height: 40px;
@@ -55,7 +91,7 @@
     border-radius: 5px;
     color: white;
     background-color: rgb(47, 109, 202);
-}
+} */
 
 #main div input{
     width: 300px;

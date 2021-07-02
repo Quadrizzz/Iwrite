@@ -11,6 +11,7 @@ body{
     height: 100vh;
     margin-top: 0;
     padding: 0;
+    width: 100%;
 }
 
 .NavBar{
@@ -23,16 +24,49 @@ body{
 
 .main_view{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-.main_container{
+.navigation{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+    width: 100%;
+    height: 250px;
+    background: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 2px 2px rgb(201, 198, 198);
+}
+
+.nav{
     width: 100%;
     display: flex;
     flex-direction: row;
-    /* align-items: flex-start; */
+    justify-content: space-evenly;
+}
+
+.profile-image{
+    width: 200px;
+    height: 200px;
+    z-index: 50;
+    position: absolute;
+    border-radius: 100%;
+    background: url('./Profile.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main_container{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
-    margin-left: 70px;
+    /* margin-left: 70px; */
     /* padding: 0 20px 0 20px; */
     /* background-color: red; */
 }
@@ -41,8 +75,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    width: 50%;
+    justify-content: space-around;
+    width: 100%;
     /* background: rebeccapurple; */
 }
 
@@ -50,46 +84,63 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     margin-top: 50px;
     /* background: rebeccapurple; */
 }
 
 .uploads{
-    width: 40%;
+    width: 20%;
     display: flex;
     height: 250px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: thin solid #44dd44;
+    box-shadow: 0 8px 8px -6px  rgb(153, 149, 149);
     border-radius: 10px;
+    padding: 0 10px 0 10px;
 }
 
 .uploads h1{
-    font-weight: lighter;
-    font-size: 30px;
+    font-size: 20px;
     color: #44dd44;
 }
 
 .downloads{
-    width: 40%;
+    width: 20%;
     height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: thin solid #63ace7;
+    box-shadow: 0 8px 8px -6px rgb(153, 149, 149);
     border-radius: 10px;
+    padding: 0 10px 0 10px;
 }
 
+
+
 .downloads h1{
-    font-weight: lighter;
-    font-size: 30px;
+    font-size: 20px;
     color: #63ace7;
 }
 
 #hello{
     color: #63ace7;
+}
+
+.bookSliders{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 40px;
+    /* background: red; */
+    margin-top: 30px;
+}
+
+#pick{
+    color: rgb(122, 121, 121);
 }
