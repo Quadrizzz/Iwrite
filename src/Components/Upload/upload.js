@@ -37,28 +37,16 @@ class Upload extends Component {
         widget.open()
     }
 
-//     validateUpdate = ()=>{
-//         fetch('http://localhost:5000/validateUpload' , {
-//             method : 'post',
-//             headers : {'Content-Type' : 'application/json'},
-//             body : JSON.stringify({
-//                 penname : this.state.penname
-//             })
-//         }).then(response => {
-//             if(response.status === 200){
-//                 this.showWidget(this.state.widget)
-//             }
-//             else{
-//                 this.setState({uploadMessage : 'Register to be a writer'})
-//             }
-//         })
-//    }
 
     checkUploadResult =  (result)=>{
         if(result.event === 'success'){
             const formData = new FormData();
                 formData.append('url' , result.info.url)
-                formData.append('id' , result.info.public_id)
+                formData.append('author', this.state.Author)
+                formData.append('bookName', this.state.bookName)
+                formData.append('genre', this.state.genre)
+                formData.append('Name' , this.props.data.name)
+                // formData.append('id' , result.info.public_id)
                 try{
                     console.log(this.state.penname)
                     const res =  axios.post('http://localhost:5000/upload' , formData, {
@@ -121,7 +109,7 @@ class Upload extends Component {
                                     <button className = "grow prev_button" onClick = {()=>{this.step(0)}}>Previous</button>
                                 </div> : 
                                     <div className = "form_input_container">
-                                        {this.state.errorMessage ? <p className = "red">Please enter the Book name, Author's name and Genre</p> : null}
+                                        {this.state.errorMessage ? <p className = "red">Please complete the form.</p> : null}
                                         <input type = 'text' placeholder = {this.state.bookName !== '' ? this.state.bookName : "Book Name"} onChange = {this.setbookName}>
                                         </input>
                                         <input type = 'text' placeholder = {this.state.Author !== '' ? this.state.Author : "Author"} onChange = {this.setAuthor}></input>

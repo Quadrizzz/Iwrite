@@ -60,6 +60,31 @@ body{
     background-size: cover;
 }
 
+.not_visible{
+    display: none;
+}
+
+.visible{
+    display: block;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    background:rgba(0,0,0,0.6);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+}
+
+.upload_cancel{
+    width: 10%;
+    background-color: red;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
 .main_container{
     /* width: 100%; */
     display: flex;

@@ -1,20 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import Store from 'store';
 import './Dashboard.css'
+import Upload from '../../Components/Upload/upload'
 // import book from './book.png'
 // import dash from './dashboard.png'
 // import settings from './settings.png'
 // import down from './down.png'
 import download from './Downloads.png'
-import upload from './Uploads.png'
+import uploads from './Uploads.png'
 // import profile from './Profile.jpg'
 // import { background } from '@chakra-ui/styled-system';
 // import { border } from '@chakra-ui/styled-system';
 // import { Icon } from '@material-ui/core';
 
-
 const Dashboard = ({set_id , props})=>{
     const [userdata, setdata] = useState('',{})
+    const [upload, setUpload] = useState(false,{})
     const parsedId = Store.get('id')
     // const [backup_id, set_backup] = useState(id, '')
 
@@ -25,6 +26,10 @@ const Dashboard = ({set_id , props})=>{
     // const IconSyle = {
     //     marginTop: "5px",
     // }
+
+    const Uploads = ()=>{
+        setUpload(true)
+    }
 
     useEffect(() => {
         let mounted = true
@@ -117,15 +122,19 @@ const Dashboard = ({set_id , props})=>{
                     </SideNav.Nav>
                 </SideNav> */}
                 <div className = "main_container">
+                    <div className = {upload ? 'visible' : 'not_visible'}>
+                        <button className = "upload_cancel">Cancel</button>
+                        <Upload data = {userdata}/>
+                    </div>
                     <div className = "stat_container">
                         <div className = "stats">
-                            <div className = "downloads">
+                            <div className = "downloads grow">
                                 <img src = {download} alt = "download"/>
                                 <h1>{userdata.downloads}</h1>
                                 <h1 className= "stats_h1">Books Downloaded</h1>
                             </div>
-                            <div className = "uploads">
-                                <img src = {upload} alt = "upload"/>
+                            <div className = "uploads grow" onClick = {()=>{Uploads()}}>
+                                <img src = {uploads} alt = "upload"/>
                                 <h1>{userdata.uploads}</h1>
                                 <h1 className= "stats_h1">Books Uploaded</h1>
                             </div>
