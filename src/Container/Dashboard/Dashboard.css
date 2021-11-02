@@ -5,6 +5,7 @@
 body{
     margin: 0;
     padding: 0;
+    background: white;
 }
 .main{
     background: white;
@@ -12,160 +13,56 @@ body{
     margin-top: 0;
     padding: 0;
     width: 100%;
-}
-
-.NavBar{
-    margin-top: 100px;
-}
-
-.NavItem{
-    align-self: center;
-}
-
-.main_view{
-    display: flex;
-    flex-direction: column;
-}
-
-.navigation{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 0 50px 0 50px;
-    width: 100%;
-    height: 250px;
-    background: white;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0px 0px 2px 2px rgb(201, 198, 198);
-}
-
-.nav{
-    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
 }
-
-.profile-image{
-    width: 200px;
-    height: 200px;
-    z-index: 50;
-    position: absolute;
-    border-radius: 100%;
-    background: url('./Profile.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.not_visible{
-    display: none;
-}
-
-.visible{
-    display: block;
-    z-index: 100;
-    position: absolute;
-    width: 100%;
-    background:rgba(0,0,0,0.6);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-}
-
-.upload_cancel{
-    width: 10%;
-    background-color: red;
-    border-radius: 10px;
-    align-self: flex-end;
-}
-
-.main_container{
-    /* width: 100%; */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    /* margin-left: 70px; */
-    /* padding: 0 20px 0 20px; */
-    /* background-color: red; */
-}
-
-.stat_container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-    /* background: rebeccapurple; */
-}
-
-.stats{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 50px;
-    /* background: rebeccapurple; */
-}
-
-.uploads{
-    width: 20%;
-    display: flex;
-    height: 250px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 8px -6px  rgb(153, 149, 149);
-    border-radius: 10px;
-    padding: 0 10px 0 10px;
-}
-
-.uploads h1{
-    font-size: 20px;
-    color: #44dd44;
-}
-
-.downloads{
-    width: 20%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 8px -6px rgb(153, 149, 149);
-    border-radius: 10px;
-    padding: 0 10px 0 10px;
-}
-
-
-
-.downloads h1{
-    font-size: 20px;
-    color: #63ace7;
-}
-
-#hello{
-    color: #63ace7;
-}
-
-.bookSliders{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 0 0 0 40px;
+.mainDiv{
+    position: relative;
+    left: 360px;
+    top: 120px;
+    color: rgb(94, 91, 91);
+    width: 80%;
     /* background: red; */
-    margin-top: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
-#pick{
-    color: rgb(122, 121, 121);
+.card_divs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    position: relative;
+    top: 50px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    /* background: red; */
+    height: 250px;
+    color: white;
+    border-radius: 10px;
+}
+
+.card h1{
+    opacity: 1;
+    font-size: 35px;
+}
+
+.text{
+    font-size: 40px !important;
+}
+
+.download{
+    background: rgba(38,62,199, 0.6);
+}
+
+.upload{
+    background: rgba(76, 218, 76, 0.6); 
 }

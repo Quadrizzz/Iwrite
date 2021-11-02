@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Store from 'store';
 import './Dashboard.css'
+import Sidebar from '../../Components/Sidebar/Sidebar';
 import Upload from '../../Components/Upload/upload'
 // import book from './book.png'
 // import dash from './dashboard.png'
@@ -13,7 +14,7 @@ import uploads from './Uploads.png'
 // import { border } from '@chakra-ui/styled-system';
 // import { Icon } from '@material-ui/core';
 
-const Dashboard = ({set_id , props})=>{
+const Dashboard = ({set_id , id})=>{
     const [userdata, setdata] = useState('',{})
     const [upload, setUpload] = useState(false,{})
     const parsedId = Store.get('id')
@@ -29,6 +30,10 @@ const Dashboard = ({set_id , props})=>{
 
     const Uploads = ()=>{
         setUpload(true)
+    }
+
+    const cancelUpload = ()=>{
+        setUpload(false);
     }
 
     useEffect(() => {
@@ -66,7 +71,7 @@ const Dashboard = ({set_id , props})=>{
         return ()=>{
             mounted = false
         }
-    }, [])
+    })
  
 
     // useEffect( ()=>{
@@ -75,21 +80,41 @@ const Dashboard = ({set_id , props})=>{
 
 
     return (
-        <div className = "main">
-           <div className = "main_view">
-                <div className = "navigation">
-                    <div>
-                        <h1 id = "hello">Hello, {userdata.name}</h1>
+
+        <div className="main">
+            <Sidebar id={id} set_id = {set_id}/>
+            <div className = "mainDiv">
+                <h1>Hi, Welcome</h1>
+                <div className = "card_divs">
+                    <div className = "card download" >
+                        <h1 className="text">Downloads</h1>
+                        <h1>{userdata.downloads}</h1>
                     </div>
-                    <div className = "nav">
-                        <p>Dashboardh</p>
-                        <p>Book</p>
-                        <div className = "profile-image">.</div>
-                        <p>Library</p>
-                        <p>Settings</p>
+                    <div className = "card upload">
+                        <h1 className="text">Uploads</h1>
+                        <h1>{userdata.uploads}</h1>
                     </div>
+
                 </div>
-                {/* <SideNav
+            </div>
+        </div>
+
+
+        // <div className = "main">
+        //    <div className = "main_view">
+        //         <div className = "navigation">
+        //             <div>
+        //                 <h1 id = "hello">Hello, {userdata.name}</h1>
+        //             </div>
+        //             <div className = "nav">
+        //                 <p>Dashboardh</p>
+        //                 <p>Book</p>
+        //                 <div className = "profile-image">.</div>
+        //                 <p>Library</p>
+        //                 <p>Settings</p>
+        //             </div>
+        //         </div>
+                /* <SideNav
                     onSelect={(selected) => {
                     }}
                    style ={{background: '#63ace7', border : 'none'}} >
@@ -120,34 +145,34 @@ const Dashboard = ({set_id , props})=>{
                             </NavText>
                         </NavItem>
                     </SideNav.Nav>
-                </SideNav> */}
-                <div className = "main_container">
-                    <div className = {upload ? 'visible' : 'not_visible'}>
-                        <button className = "upload_cancel">Cancel</button>
-                        <Upload data = {userdata}/>
-                    </div>
-                    <div className = "stat_container">
-                        <div className = "stats">
-                            <div className = "downloads grow">
-                                <img src = {download} alt = "download"/>
-                                <h1>{userdata.downloads}</h1>
-                                <h1 className= "stats_h1">Books Downloaded</h1>
-                            </div>
-                            <div className = "uploads grow" onClick = {()=>{Uploads()}}>
-                                <img src = {uploads} alt = "upload"/>
-                                <h1>{userdata.uploads}</h1>
-                                <h1 className= "stats_h1">Books Uploaded</h1>
-                            </div>
-                        </div>
+                </SideNav> */
+        //         <div className = "main_container">
+        //             <div className = {upload ? 'visible' : 'not_visible'}>
+        //                 <button className = "upload_cancel" onClick={()=>{cancelUpload()}}>Cancel</button>
+        //                 <Upload data = {userdata}/>
+        //             </div>
+        //             <div className = "stat_container">
+        //                 <div className = "stats">
+        //                     <div className = "downloads grow">
+        //                         <img src = {download} alt = "download"/>
+        //                         <h1>{userdata.downloads}</h1>
+        //                         <h1 className= "stats_h1">Books Downloaded</h1>
+        //                     </div>
+        //                     <div className = "uploads grow" onClick = {()=>{Uploads()}}>
+        //                         <img src = {uploads} alt = "upload"/>
+        //                         <h1>{userdata.uploads}</h1>
+        //                         <h1 className= "stats_h1">Books Uploaded</h1>
+        //                     </div>
+        //                 </div>
 
-                        <div className = "bookSliders">
-                            <h1 id = "pick">Pick of the day.</h1>
-                        </div>
+        //                 <div className = "bookSliders">
+        //                     <h1 id = "pick">Pick of the day.</h1>
+        //                 </div>
 
-                    </div>
-                </div>
-           </div>
-        </div>
+        //             </div>
+        //         </div>
+        //    </div>
+        // </div>
     )
 }
 
